@@ -18,8 +18,8 @@ public class Util {
     static {
         Configuration configuration = new Configuration();
 
-        configuration.addAnnotatedClass (User.class);
-        configuration.setProperty("hibernate.connection.driver_class","com.mysql.jdbc.Driver");
+        configuration.addAnnotatedClass(User.class);
+        configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
         configuration.setProperty("hibernate.connection.url", URL);
         configuration.setProperty("hibernate.connection.username", USERNAME);
         configuration.setProperty("hibernate.connection.password", PASSWORD);
@@ -37,6 +37,10 @@ public class Util {
 
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public static void closeSessionFactory() {
+        sessionFactory.close();
     }
 
     public static Connection getConnection() throws SQLException {
